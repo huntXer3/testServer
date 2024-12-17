@@ -1,0 +1,38 @@
+[
+    {
+        "product_key": 1,
+        "product_name": "MUSE Controllers",
+        "product_url": "https://www.amx.com/en/product_families/muse-controllers",
+        "interest": 0
+    },
+    {
+        "product_key": 2,
+        "product_name": "N2600",
+        "product_url": "https://www.amx.com/en/product_families/n2600-series-4k60",
+        "interest": 0
+    },
+    {
+        "product_key": 3,
+        "product_name": "N3300",
+        "product_url": "https://www.amx.com/en/product_families/n3300-series-4k60",
+        "interest": 0
+    },
+    {
+        "product_key": 4,
+        "product_name": "MUSE Automator",
+        "product_url": "https://www.amx.com/en/products/muse-automator",
+        "interest": 0
+    },
+    {
+        "product_key": 5,
+        "product_name": "Varia",
+        "product_url": "https://www.amx.com/en/product_families/varia",
+        "interest": 0
+    },
+    {
+        "product_key": 6,
+        "product_name": "Netlinx NX Controllers",
+        "product_url": "https://www.amx.com/en/product_families/netlinx-nx-controllers",
+        "interest": 0
+    }
+]

@@ -1,0 +1,646 @@
+[
+    {
+        "id": "446a6f095749bfcc",
+        "type": "tab",
+        "label": "Everything",
+        "disabled": false,
+        "info": "Currently everything is in 1 flow.",
+        "env": []
+    },
+    {
+        "id": "0af443ca5011dd70",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "28288c6f6890ad09",
+        "type": "junction",
+        "z": "446a6f095749bfcc",
+        "x": 280,
+        "y": 520,
+        "wires": [
+            [
+                "4d2067adefbd959b"
+            ]
+        ]
+    },
+    {
+        "id": "bf249592dcf2a3c6",
+        "type": "json",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 220,
+        "wires": [
+            [
+                "f1b231089f73e0ab"
+            ]
+        ]
+    },
+    {
+        "id": "cd9c41ba0290352c",
+        "type": "file in",
+        "z": "446a6f095749bfcc",
+        "name": "product JSON file",
+        "filename": "C:\\Users\\YBenyamin\\Documents\\Projects\\Harman EC\\products.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "bf249592dcf2a3c6"
+            ]
+        ]
+    },
+    {
+        "id": "c7eec2c6fc5c83f8",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "cd9c41ba0290352c"
+            ]
+        ]
+    },
+    {
+        "id": "26bd10f3b7db4bbf",
+        "type": "debug",
+        "z": "446a6f095749bfcc",
+        "name": "file loaded",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f1b231089f73e0ab",
+        "type": "change",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "products",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 220,
+        "wires": [
+            [
+                "26bd10f3b7db4bbf"
+            ]
+        ]
+    },
+    {
+        "id": "f5826dddb4f3d0aa",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "9de3421a370fba6b"
+            ]
+        ]
+    },
+    {
+        "id": "5b8a1d81bb10de8a",
+        "type": "debug",
+        "z": "446a6f095749bfcc",
+        "name": "saved",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9de3421a370fba6b",
+        "type": "change",
+        "z": "446a6f095749bfcc",
+        "name": "save the products as global.products",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "products",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "5b8a1d81bb10de8a"
+            ]
+        ]
+    },
+    {
+        "id": "f6953d10ccbb451f",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "c47449c7c8b677c2",
+        "type": "debug",
+        "z": "446a6f095749bfcc",
+        "name": "url to send",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4d2067adefbd959b",
+        "type": "function",
+        "z": "446a6f095749bfcc",
+        "name": "function 1",
+        "func": "let products = global.get(\"products\")\n//msg.payload = products\n\nfor(let i = 0; i < products.length; i++){\n    if (products[i].product_key == msg.payload){\n        msg.payload = products[i].product_url;\n        return msg;\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "c47449c7c8b677c2"
+            ]
+        ]
+    },
+    {
+        "id": "5479b2640b0c4a3a",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "fd36bb71ff28973f",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "6b69d9983cc997fe",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "num",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "fb4edaf4cadf295c",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "ce8d8698685b3762",
+        "type": "inject",
+        "z": "446a6f095749bfcc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "6",
+        "payloadType": "num",
+        "x": 150,
+        "y": 640,
+        "wires": [
+            [
+                "28288c6f6890ad09"
+            ]
+        ]
+    },
+    {
+        "id": "0f7abbad2a6669d1",
+        "type": "comment",
+        "z": "446a6f095749bfcc",
+        "name": "file location",
+        "info": "Please adjust the products.json file location to suit your setup.",
+        "x": 400,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "11805333c96374db",
+        "type": "comment",
+        "z": "446a6f095749bfcc",
+        "name": "reload ?",
+        "info": "do we need to reload the file every hour or so?",
+        "x": 1080,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "06d230ea848ba23e",
+        "type": "inject",
+        "z": "0af443ca5011dd70",
+        "name": "station3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nameId\":3,\"productName\":\"Control 30\",\"productURL\":\"www.control30.com/C30\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 270,
+        "wires": [
+            [
+                "d16b1cd58f770779"
+            ]
+        ]
+    },
+    {
+        "id": "7171c13c938d2463",
+        "type": "inject",
+        "z": "0af443ca5011dd70",
+        "name": "station2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nameId\":2,\"productName\":\"Control 20\",\"productURL\":\"www.control20.com/C20\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 230,
+        "wires": [
+            [
+                "d16b1cd58f770779"
+            ]
+        ]
+    },
+    {
+        "id": "b83e6e233bd1f7fe",
+        "type": "inject",
+        "z": "0af443ca5011dd70",
+        "name": "station1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nameId\":1,\"productName\":\"Control 10\",\"productURL\":\"www.c10.com/C10\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 190,
+        "wires": [
+            [
+                "d16b1cd58f770779"
+            ]
+        ]
+    },
+    {
+        "id": "b14dbadd48237d03",
+        "type": "inject",
+        "z": "0af443ca5011dd70",
+        "name": "station4",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nameId\":4,\"productName\":\"Control 40\",\"productURL\":\"www.control40.com/C40\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 310,
+        "wires": [
+            [
+                "d16b1cd58f770779"
+            ]
+        ]
+    },
+    {
+        "id": "7437b219876db247",
+        "type": "debug",
+        "z": "0af443ca5011dd70",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.productURL",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 655,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d16b1cd58f770779",
+        "type": "function",
+        "z": "0af443ca5011dd70",
+        "name": "function 3",
+        "func": "// create flow.productsList if not present\nlet productsList =  flow.get(\"productsList\") || [];\n\n// push station info to productsList array\nproductsList.push(msg.payload)\n\n//save the array to flow.productsList\nflow.set(\"productsList\",productsList)\n\n\nnode.warn(productsList)\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "7437b219876db247"
+            ]
+        ]
+    },
+    {
+        "id": "2980d6ae2d44c539",
+        "type": "template",
+        "z": "0af443ca5011dd70",
+        "name": "",
+        "field": "payload",
+        "fieldType": "flow",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "below is the list of products that you had show interested\n\n{{payload[0].nameId}}\n\n",
+        "output": "str",
+        "x": 570,
+        "y": 495,
+        "wires": [
+            [
+                "2ba10f83bac314be"
+            ]
+        ]
+    },
+    {
+        "id": "9173ece8eef071e0",
+        "type": "inject",
+        "z": "0af443ca5011dd70",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 270,
+        "y": 450,
+        "wires": [
+            [
+                "2980d6ae2d44c539"
+            ]
+        ]
+    },
+    {
+        "id": "2ba10f83bac314be",
+        "type": "debug",
+        "z": "0af443ca5011dd70",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 795,
+        "y": 495,
+        "wires": []
+    },
+    {
+        "id": "554b2d311028d1dd",
+        "type": "change",
+        "z": "0af443ca5011dd70",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "productsList",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 585,
+        "wires": [
+            []
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+{
+    "name": "ec_demo",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "ec.json",
+            "credentialsFile": "ec_cred.json"
+        }
+    }
+}
